@@ -5,6 +5,19 @@ from pytube import YouTube
 import os
 import numpy as np
 
+
+
+# Configure the page
+st.set_page_config(page_title="YTviral", page_icon=":robot:")
+
+# Set the logo
+st.image("logo/logo.png", width=200)
+
+# Set the title
+st.title("Youtube Video Viral Moments Extractor")
+
+
+
 # Function to download YouTube video using yt-dlp
 def download_video_with_ytdlp(url, output_name='output_video.mp4'):
     command = [
@@ -44,8 +57,7 @@ def extract_clip(video_path, start_time, duration=30, output_name='output_clip.m
     clip.write_videofile(output_name, codec="libx264")
     clip.close()
 
-# Streamlit app
-st.title("YouTube Video Clip Extractor")
+
 
 # Input for YouTube URL
 youtube_url = st.text_input("Enter YouTube URL:")
